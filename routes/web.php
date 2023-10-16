@@ -15,18 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return '<h1>Home Page</h1><br><a href="/about">view about page</a>';
-});
-
-Route::get('/hello', function () {
-    return response('<h1>Hello World</h1>')->header('Content-Type', 'text/plain')->header('foo', 'bar');
-});
-
-Route::get('/posts/{id}', function($id) {
-    ddd($id);
-    return response('Post ' . $id);
-})->where('id', '[0-9]+');
-
-Route::get('/search', function(Request $request) {
-    return $request->name . ' ' . $request->city;
+    return view('listings', [
+        'heading' => 'Latest Listings',
+    ]);
 });
